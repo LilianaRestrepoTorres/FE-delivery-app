@@ -1,17 +1,9 @@
 import './App.css';
-import axios from 'axios';
-import {useEffect, useState} from 'react';
+import { useGetData } from './hook/useGetData';
 
 function App() {
-  const [deliveries, setDeliveries] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:9393/deliveries")
-    .then((response) => {
-        console.log(response.data);
-        setDeliveries(response.data);
-    });
-  }, []);
+  // Calling hook where is the call to the API and getting the state
+  const {deliveries} = useGetData();
 
   return (
     <div className="App">
