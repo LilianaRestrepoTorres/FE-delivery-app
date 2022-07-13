@@ -3,7 +3,7 @@ import React from "react";
 function ListDeliveries({ deliveries }) {
   return (
     <div>
-      <h1>List Deliveries</h1>
+      <h3>List Deliveries</h3>
       {deliveries.map((delivery) => {
         return (
           <div key={delivery.id}>
