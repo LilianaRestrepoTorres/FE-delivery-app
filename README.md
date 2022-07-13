@@ -54,6 +54,9 @@ Perfect! Let's clone the repo, and install the dependencies of the project.
 https://user-images.githubusercontent.com/17114826/178787662-93628165-6e67-4465-8ffa-2fe45a8c38fd.mov
 
 
+## Diagram
+
+![DeliveriesApp](https://user-images.githubusercontent.com/17114826/178790982-01b21a25-3720-4fb3-b97d-244e7e5a948e.png)
 
  
 ---
