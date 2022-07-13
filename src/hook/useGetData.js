@@ -24,8 +24,33 @@ const useGetData = ()=> {
         }
     };
 
+    // Sort by ascendent or descendent function hook
+    const sortDeliveries = (order) => {
+        let sortProperty = "creation_date";
+        const newArray = [...deliveries];
+        // Sort by id or other string property
+        // let newArraySorted = newArray.sort((a, b) => {
+        //     if(order === "ascendent") {
+        //         return a[sortProperty] - b[sortProperty];
+        //     }
+        //     else {
+        //         return b[sortProperty] - a[sortProperty];
+        //     }
+        // }
+        // );
+        let newArraySorted = newArray.sort((a, b) => {
+            if(order === "ascendent") {
+                return Date.parse(a[sortProperty]) - Date.parse(b[sortProperty]);
+            }
+            else {
+                return Date.parse(b[sortProperty]) - Date.parse(a[sortProperty]);
+            }
+        });
+        setDeliveries(newArraySorted);
+    }
 
-    return {deliveries, filterDeliveries};
+
+    return {deliveries, filterDeliveries, sortDeliveries};
 }
 
 export { useGetData };
