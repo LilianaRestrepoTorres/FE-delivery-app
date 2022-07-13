@@ -12,8 +12,10 @@ function App() {
     <div className="App">
       <div>
         <h1>Deliveries App!</h1>
-        <StatusFilter filterDeliveries={filterDeliveries}/>
-        <SortFilter sortDeliveries={sortDeliveries}/>
+        <div className='filter'>
+          <StatusFilter filterDeliveries={filterDeliveries}/>
+          <SortFilter sortDeliveries={sortDeliveries}/>
+        </div>
         <ListDeliveries deliveries={deliveries}/>
       </div>
     </div>

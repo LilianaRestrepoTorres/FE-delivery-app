@@ -8,7 +8,6 @@ const useGetData = ()=> {
     useEffect(() => {
         axios.get("http://localhost:9393/deliveries")
         .then((response) => {
-            console.log(response.data);
             setDeliveries(response.data);
         });
     }, []);
@@ -28,16 +27,6 @@ const useGetData = ()=> {
     const sortDeliveries = (order) => {
         let sortProperty = "creation_date";
         const newArray = [...deliveries];
-        // Sort by id or other string property
-        // let newArraySorted = newArray.sort((a, b) => {
-        //     if(order === "ascendent") {
-        //         return a[sortProperty] - b[sortProperty];
-        //     }
-        //     else {
-        //         return b[sortProperty] - a[sortProperty];
-        //     }
-        // }
-        // );
         let newArraySorted = newArray.sort((a, b) => {
             if(order === "ascendent") {
                 return Date.parse(a[sortProperty]) - Date.parse(b[sortProperty]);
@@ -48,7 +37,6 @@ const useGetData = ()=> {
         });
         setDeliveries(newArraySorted);
     }
-
 
     return {deliveries, filterDeliveries, sortDeliveries};
 }
