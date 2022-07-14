@@ -6,7 +6,7 @@ import SortFilter from './components/SortFilter';
 
 function App() {
   // Calling hook where is the call to the API and getting the state
-  const {deliveries, filterDeliveries, sortDeliveries} = useGetData();
+  const {deliveries, updateStatusDelivery, filterDeliveries, sortDeliveries} = useGetData();
 
   return (
     <div className="App">
@@ -16,7 +16,7 @@ function App() {
           <StatusFilter filterDeliveries={filterDeliveries}/>
           <SortFilter sortDeliveries={sortDeliveries}/>
         </div>
-        <ListDeliveries deliveries={deliveries}/>
+        <ListDeliveries deliveries={deliveries} updateStatusDelivery={updateStatusDelivery}/>
       </div>
     </div>
   );

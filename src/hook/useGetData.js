@@ -9,8 +9,35 @@ const useGetData = ()=> {
         axios.get("http://localhost:9393/deliveries")
         .then((response) => {
             setDeliveries(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
         });
     }, []);
+
+    // Function get all deliveries
+    const getDeliveries = () => {
+        axios.get("http://localhost:9393/deliveries")
+        .then((response) => {
+            setDeliveries(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
+    // Calling API to update state delivery
+    const updateStatusDelivery = (id, newState) => {
+        axios.patch("http://localhost:9393/changestatedelivery", {id, newState})
+        .then((response) => {
+            //console.log(response);
+            getDeliveries();
+        })
+        .catch((error) => {
+            console.log(error);
+        }
+        );
+    }
 
     // Status Filter function hook
     const filterDeliveries = (status, deliveries) => {
@@ -38,7 +65,7 @@ const useGetData = ()=> {
         setDeliveries(newArraySorted);
     }
 
-    return {deliveries, filterDeliveries, sortDeliveries};
+    return {deliveries, updateStatusDelivery, filterDeliveries, sortDeliveries};
 }
 
 export { useGetData };

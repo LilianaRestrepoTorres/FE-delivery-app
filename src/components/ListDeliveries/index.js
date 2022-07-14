@@ -1,6 +1,8 @@
 import React from "react";
+import UpdateStateButton from "../UpdateStateButton";
 
-function ListDeliveries({ deliveries }) {
+function ListDeliveries({ deliveries, updateStatusDelivery }) {
+  
   return (
     <div>
       <h3>List Deliveries</h3>
@@ -11,6 +13,7 @@ function ListDeliveries({ deliveries }) {
             <p>Date: {delivery.creation_date}</p>
             <p>State: {delivery.state}</p>
             <p>Zone: {delivery.zone_id}</p>
+            <UpdateStateButton delivery={delivery} updateStatusDelivery={updateStatusDelivery} />
           </div>
         );
       })}
